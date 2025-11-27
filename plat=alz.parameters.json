@@ -1,0 +1,150 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    //
+    // ==========================================================
+    //  MANAGEMENT GROUP STRUCTURE
+    // ==========================================================
+    //
+    "createManagementGroups": {
+      "value": {
+        "platform": {
+          "displayName": "mg-platform"
+        },
+        "esss": {
+          "displayName": "mg-esss"
+        },
+        "gtsf": {
+          "displayName": "mg-gtsf"
+        },
+        "onev": {
+          "displayName": "mg-onev"
+        }
+      }
+    },
+
+    //
+    // ==========================================================
+    //  SUBSCRIPTION PLACEMENT
+    // ==========================================================
+    //
+    "subscriptionPlacement": {
+      "value": {
+        "platform": {
+          "nonProd": [
+            "sub-shared-connectivity-nonprod"
+          ],
+          "prod": [
+            "sub-shared-connectivity-prod"
+          ]
+        },
+        "esss": {
+          "nonProd": [
+            "sub-esss-nonprod"
+          ],
+          "prod": [
+            "sub-esss-prod"
+          ]
+        },
+        "gtsf": {
+          "nonProd": [
+            "sub-gtsf-nonprod"
+          ],
+          "prod": [
+            "sub-gtsf-prod"
+          ]
+        },
+        "onev": {
+          "nonProd": [
+            "sub-onev-nonprod"
+          ],
+          "prod": [
+            "sub-onev-prod"
+          ]
+        }
+      }
+    },
+
+    //
+    // ==========================================================
+    //  LOGGING & MONITORING
+    // ==========================================================
+    //
+    "deployLogAnalytics": {
+      "value": true
+    },
+    "logAnalyticsRegion": {
+      "value": "australiaeast"
+    },
+    "logRetentionInDays": {
+      "value": 30
+    },
+
+    //
+    // ==========================================================
+    // DIAGNOSTICS SETTINGS BASELINE
+    // ==========================================================
+    //
+    "enableDiagnosticSettings": {
+      "value": true
+    },
+
+    //
+    // ==========================================================
+    // POLICY & SECURITY BASELINE
+    // ==========================================================
+    //
+    "deployPolicy": {
+      "value": true
+    },
+    "deploySecurityCenter": {
+      "value": true
+    },
+    "enableTags": {
+      "value": true
+    },
+    "requiredTags": {
+      "value": [
+        "Environment",
+        "CostCenter",
+        "Application",
+        "Owner",
+        "BusinessUnit"
+      ]
+    },
+
+    //
+    // ==========================================================
+    // HUB NETWORK (OPTIONAL)
+    // ==========================================================
+    //
+    "deployHubNetworking": {
+      "value": false
+    },
+    "hubNetworkingRegion": {
+      "value": "australiaeast"
+    },
+
+    //
+    // ==========================================================
+    //  PLATFORM CONFIGURATION (IDENTITY, RBAC)
+    // ==========================================================
+    //
+    "configureRoleAssignments": {
+      "value": true
+    },
+    "enableManagedIdentity": {
+      "value": true
+    },
+
+    //
+    // ==========================================================
+    // GENERAL
+    // ==========================================================
+    //
+    "location": {
+      "value": "australiaeast"
+    }
+  }
+}
